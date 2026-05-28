@@ -1,16 +1,17 @@
 terraform {
   backend "s3" {
-    bucket         = "terraform-with-actions-bucket"
+    bucket         = "terraform-with-actions-bucket-demo987594"
     key            = "env/dev/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-with-actions-locks-1234"
+    region         = "eu-central-1"
+    #_dynamodb_table = "terraform-with-actions-locks-1234"
     encrypt        = true
+    use_lockfile = true
   }
 }
 
 
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-central-1"
 }
 
 resource "random_id" "suffix" {
